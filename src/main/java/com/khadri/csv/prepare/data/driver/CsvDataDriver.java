@@ -5,9 +5,11 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import com.khadri.csv.prepare.data.customer.processor.CustomerDataProcessor;
 import com.khadri.csv.prepare.data.driver.types.DriverTypes;
 import com.khadri.csv.prepare.data.student.processor.StudentDataProcessor;
 import com.khadri.csv.prepare.data.student.util.StudentFileUtil;
+import com.khadri.cvs.prepare.data.customer.util.CustomerFileUtil;
 
 import io.vavr.Tuple2;
 
@@ -52,6 +54,24 @@ public class CsvDataDriver {
 			tupleFilePW._2.close();
 
 			break;
+		case 2:
+			break;
+		case 3:
+			CustomerDataProcessor custProcessor = new CustomerDataProcessor(scanner);
+			Tuple2<File, PrintWriter> tupleFilePW2 = CustomerFileUtil.customerCsvFilePrintWriter();
+
+			System.out.println(" How many records you want to enter ?  : ");
+			int records2 = scanner.nextInt();
+
+			for (int i = 1; i <= records2; i++) {
+				custProcessor.process(tupleFilePW2._2, i);
+			}
+
+			tupleFilePW2._2.flush();
+			tupleFilePW2._2.close();
+
+			break;
+			
 		default:
 			break;
 		}
