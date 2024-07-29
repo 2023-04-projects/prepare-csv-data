@@ -8,6 +8,8 @@ import java.util.Scanner;
 import com.khadri.csv.prepare.data.driver.types.DriverTypes;
 import com.khadri.csv.prepare.data.student.processor.StudentDataProcessor;
 import com.khadri.csv.prepare.data.student.util.StudentFileUtil;
+import com.khadri.csv.prepare.data.supermarket.processor.SuperMarketDataProcessor;
+import com.khadri.csv.prepare.data.supermarket.util.SuperMarketFileUtil;
 
 import io.vavr.Tuple2;
 
@@ -57,6 +59,34 @@ public class CsvDataDriver {
 			}
 
 			break;
+
+		case 2:
+			break;
+
+		case 3:
+			break;
+
+		case 4:
+			SuperMarketDataProcessor superMarketDataProcessor = new SuperMarketDataProcessor(scanner);
+			Tuple2<File, PrintWriter> tupleFilePW4 = SuperMarketFileUtil.superMarketCsvFilePrintWriter();
+			try {
+				System.out.println("How Many Records Do You Want ? : ");
+				int records4 = scanner.nextInt();
+
+				for (int i = 1; i <= records4; i++) {
+					superMarketDataProcessor.process(tupleFilePW4._2, i);
+				}
+
+			} catch (Exception e) {
+				System.out.println("Exception Occured " + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
+				tupleFilePW4._2.flush();
+				tupleFilePW4._2.close();
+
+			}
+			break;
+
 		default:
 			break;
 		}
