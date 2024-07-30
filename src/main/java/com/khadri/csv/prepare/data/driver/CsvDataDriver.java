@@ -43,15 +43,20 @@ public class CsvDataDriver {
 			StudentDataProcessor stdProcessor = new StudentDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW = StudentFileUtil.studentCsvFilePrintWriter();
 
-			System.out.println(" How many records you want to enter ?  : ");
-			int records = scanner.nextInt();
+			try {
+				System.out.println(" How many records you want to enter ?  : ");
+				int records = scanner.nextInt();
 
-			for (int i = 1; i <= records; i++) {
-				stdProcessor.process(tupleFilePW._2, i);
+				for (int i = 1; i <= records; i++) {
+					stdProcessor.process(tupleFilePW._2, i);
+				}
+			} catch (Exception e) {
+				System.out.println("Exception Occured " + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
+				tupleFilePW._2.flush();
+				tupleFilePW._2.close();
 			}
-
-			tupleFilePW._2.flush();
-			tupleFilePW._2.close();
 
 			break;
 		case 2:
@@ -60,21 +65,26 @@ public class CsvDataDriver {
 			CustomerDataProcessor custProcessor = new CustomerDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW2 = CustomerFileUtil.customerCsvFilePrintWriter();
 
+			try {
 			System.out.println(" How many records you want to enter ?  : ");
 			int records2 = scanner.nextInt();
 
 			for (int i = 1; i <= records2; i++) {
 				custProcessor.process(tupleFilePW2._2, i);
 			}
-
+			} catch (Exception e) {
+				System.out.println("Exception Occured " + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
 			tupleFilePW2._2.flush();
 			tupleFilePW2._2.close();
-
+			}
 			break;
 			
 		default:
 			break;
 		}
+	
 	}
-
 }
+		

@@ -20,7 +20,19 @@ public class CustomerFileUtil {
 
 		try {
 			file = new File("src/main/resources/customer.csv");
+            boolean isNewFile = file.createNewFile(); 
 			pw = new PrintWriter(new FileWriter(file, true));
+		
+			 if (isNewFile) {
+	                System.out.println("File is new, writing header...");
+	               Arrays.stream(CustomerCsvHeaders.values()).forEach(eachHeader -> {
+	                    pw.print(eachHeader.name());
+	                    pw.print(",");  
+	                });
+	                pw.println();
+	                } else {
+	                System.out.println("File already exists, skipping header...");
+	            }
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -38,29 +50,10 @@ public class CustomerFileUtil {
 		
 		System.out.println("File Name : " + file.getName() + " Created At : " + file.getPath());
 		System.out.println("<=========== CUSTOMER CSV File Creation ENDS <===========");
-
-		System.out.println("===========> CUSTOMER HEADER ROW WRITING INTO CSV File STARTS ===========>");
-
-		Integer maxHeaderCount = Arrays.stream(CustomerCsvHeaders.values()).map(eachHeder -> eachHeder.getId())
-				.max((i1, i2) -> i1.compareTo(i2)).get();
-
-		Arrays.stream(CustomerCsvHeaders.values()).forEach(eachHeader -> {
-			pw.print(eachHeader.name());
-
-			if (eachHeader.getId() != maxHeaderCount)
-				pw.print(",");
-		});
-
-		System.out.println("Process of Writing Headers into : "+file.getName());
-		try {
-			for (int i = 0; i < 1; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
 	
+	System.out.println("===========> CUSTOMER HEADER ROW WRITING INTO CSV File STARTS ===========>");
+
+		
 
 		System.out.println("<=========== CUSTOMER HEADER ROW WRITING INTO CSV File ENDS <===========");
 
