@@ -57,7 +57,6 @@ public class CsvDataDriver {
 				tupleFilePW._2.flush();
 				tupleFilePW._2.close();
 			}
-
 			break;
 		case 2:
 			EmployeeDataProcessor empProcessor = new EmployeeDataProcessor(scanner);
