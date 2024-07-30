@@ -15,7 +15,7 @@ public class SuperMarketDataProcessor implements Processor {
 	@Override
 	public void process(PrintWriter pw, int recordNumber) {
 
-		System.out.println("===========> PRODUCT " + recordNumber + " DATA READING STARTS ===========>");
+		System.out.println("===========> SUPERMARKET " + recordNumber + " DATA READING STARTS ===========>");
 
 		System.out.println("Enter Product Name : ");
 		String prodName = scanner.next();
@@ -32,7 +32,7 @@ public class SuperMarketDataProcessor implements Processor {
 		System.out.println("Processing Product Total Amount");
 
 		double totalAmt = prodPrice * prodQty;
-		System.out.println(" : " + totalAmt);
+		System.out.println("TOTAL_AMT : " + totalAmt);
 		try {
 			for (int i = 0; i < 1; i++) {
 				Thread.sleep(1000);
@@ -42,12 +42,12 @@ public class SuperMarketDataProcessor implements Processor {
 			System.out.println("never comes");
 		}
 
-		System.out.println("<=========== PRODUCT " + recordNumber + " DATA READING ENDS <===========");
+		System.out.println("<=========== SUPERMARKET " + recordNumber + " DATA READING ENDS <===========");
 
-		System.out.println("===========> PRODUCT " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
+		System.out.println("===========> SUPERMARKET " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 
-		pw.println();
+		//pw.println();
 		String line = prodName + "," + prodId + "," + prodPrice + "," + prodQty + "," + totalAmt;
 		pw.println(line);
 
@@ -60,6 +60,6 @@ public class SuperMarketDataProcessor implements Processor {
 			System.out.println("never comes");
 		}
 		System.out.println();
-		System.out.println("<=========== PRODUCT " + recordNumber + " DATA WRITING INTO CSV File ENDS <===========");
+		System.out.println("<=========== SUPERMARKET " + recordNumber + " DATA WRITING INTO CSV File ENDS <===========");
 	}
 }
