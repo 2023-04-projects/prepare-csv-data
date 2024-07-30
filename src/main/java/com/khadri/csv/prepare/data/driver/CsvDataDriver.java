@@ -62,18 +62,20 @@ public class CsvDataDriver {
 		case 2:
 			EmployeeDataProcessor empProcessor = new EmployeeDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW1 = EmployeeFileUtil.employeeCsvFilePrintWriter();
-
-			System.out.println(" How many records you want to enter ?  : ");
-			int records1 = scanner.nextInt();
-
-			for (int i = 1; i <= records1; i++) {
-				empProcessor.process(tupleFilePW1._2, i);
+			try {
+				System.out.println(" How many records you want to enter ?  : ");
+				int records1 = scanner.nextInt();
+				for (int i = 1; i <= records1; i++) {
+					empProcessor.process(tupleFilePW1._2, i);
+				}
+			} catch (Exception e) {
+				System.out.println("Exception Occured" + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
+				tupleFilePW1._2.flush();
+				tupleFilePW1._2.close();
 			}
-
-			tupleFilePW1._2.flush();
-			tupleFilePW1._2.close();
 			break;
-
 		default:
 			break;
 		}
