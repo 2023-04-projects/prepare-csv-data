@@ -22,7 +22,6 @@ public class CsvDataDriver {
 	}
 
 	public static void main(String[] args) {
-
 		System.out.println("###################### Welocme to CSV data Driver  ########################");
 		System.out.println("$$$$$$$$$$$$$$ The data procesors $$$$$$$$$$$$$$$$$");
 
@@ -37,7 +36,7 @@ public class CsvDataDriver {
 	private void process() {
 		System.out.println("Please choose the data processor : ");
 		int dataProcessId = scanner.nextInt();
-
+		
 		switch (dataProcessId) {
 		case 1:
 			StudentDataProcessor stdProcessor = new StudentDataProcessor(scanner);
@@ -57,7 +56,6 @@ public class CsvDataDriver {
 				tupleFilePW._2.flush();
 				tupleFilePW._2.close();
 			}
-
 			break;
 		case 2:
 			EmployeeDataProcessor empProcessor = new EmployeeDataProcessor(scanner);
