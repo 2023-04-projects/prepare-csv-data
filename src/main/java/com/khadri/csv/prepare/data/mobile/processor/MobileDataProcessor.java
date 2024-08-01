@@ -61,6 +61,9 @@ public class MobileDataProcessor implements Processor {
 		System.out.println("Processing  File Wrting ");
 
 		pw.println();// new empty row
+		String line = id + "," + name + "," + price;
+
+		pw.println(line);
 
 		try {
 			for (int i = 0; i < 5; i++) {
