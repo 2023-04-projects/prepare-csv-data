@@ -8,6 +8,8 @@ import java.util.Scanner;
 import com.khadri.csv.prepare.data.driver.types.DriverTypes;
 import com.khadri.csv.prepare.data.employee.processor.EmployeeDataProcessor;
 import com.khadri.csv.prepare.data.employee.util.EmployeeFileUtil;
+import com.khadri.csv.prepare.data.movie.processor.MovieDataProcessor;
+import com.khadri.csv.prepare.data.movie.util.MovieFileUtil;
 import com.khadri.csv.prepare.data.student.processor.StudentDataProcessor;
 import com.khadri.csv.prepare.data.student.util.StudentFileUtil;
 
@@ -40,6 +42,7 @@ public class CsvDataDriver {
 
 		switch (dataProcessId) {
 		case 1:
+
 			StudentDataProcessor stdProcessor = new StudentDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW = StudentFileUtil.studentCsvFilePrintWriter();
 
@@ -59,6 +62,22 @@ public class CsvDataDriver {
 			}
 
 			break;
+
+		case 5:
+			MovieDataProcessor dataProcessor = new MovieDataProcessor(scanner);
+			Tuple2<File, PrintWriter> movieCsvFilePrintWriter = MovieFileUtil.movieCsvFilePrintWriter();
+			System.out.println(" How many records you want to enter ?  : ");
+			int movieRecords = scanner.nextInt();
+
+			for (int i = 0; i < movieRecords; i++) {
+				dataProcessor.process(movieCsvFilePrintWriter._2, i);
+
+			}
+
+			movieCsvFilePrintWriter._2.flush();
+			movieCsvFilePrintWriter._2.close();
+			break;
+
 		case 2:
 			EmployeeDataProcessor empProcessor = new EmployeeDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW1 = EmployeeFileUtil.employeeCsvFilePrintWriter();
