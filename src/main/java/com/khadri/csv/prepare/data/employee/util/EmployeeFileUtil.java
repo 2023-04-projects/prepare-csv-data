@@ -31,7 +31,6 @@ public class EmployeeFileUtil {
 		            } else {
 		                System.out.println("File already exists, skipping header...");
 		            }
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -44,8 +43,8 @@ public class EmployeeFileUtil {
 		} catch (Exception e) {
 			System.out.println("never comes");
 		}
-		
 		System.out.println("File Name : " + file.getName() + " Created At : " + file.getPath());
+		
 		System.out.println("<=========== EMPLOYEE CSV File Creation ENDS <===========");
 
 		System.out.println("===========> EMPLOYEE HEADER ROW WRITING INTO CSV File STARTS ===========>");

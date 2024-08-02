@@ -19,7 +19,6 @@ public class CsvDataDriver {
 	{
 		scanner = new Scanner(System.in);
 	}
-
 	public static void main(String[] args) {
 		System.out.println("###################### Welocme to CSV data Driver  ########################");
 		System.out.println("$$$$$$$$$$$$$$ The data procesors $$$$$$$$$$$$$$$$$");

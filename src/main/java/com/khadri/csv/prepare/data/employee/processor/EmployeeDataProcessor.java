@@ -30,14 +30,12 @@ public class EmployeeDataProcessor implements Processor {
 		System.out.println("<=========== EMPLOYEE " + recordNumber + " DATA READING ENDS <===========");
 		System.out.println("===========> EMPLOYEE " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
-		
 		System.out.println("===========> EMPLOYEE " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 		
 		pw.println();
 		String line = id + "," + name + "," + desigination + "," + salary ;
 		pw.println(line);
-
 
 	}
 }
