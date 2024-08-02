@@ -41,7 +41,6 @@ public class CsvDataDriver {
 		case 1:
 			StudentDataProcessor stdProcessor = new StudentDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW = StudentFileUtil.studentCsvFilePrintWriter();
-
 			try {
 				System.out.println(" How many records you want to enter ?  : ");
 				int records = scanner.nextInt();
