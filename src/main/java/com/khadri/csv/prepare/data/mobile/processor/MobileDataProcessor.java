@@ -27,52 +27,19 @@ public class MobileDataProcessor implements Processor {
 		int price = scanner.nextInt();
 
 		System.out.println("Processing MOBILE DATA");
-		try {
-			for (int i = 0; i < 1; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
 
 		System.out.println("Processing MOBILE DETAILS");
-		try {
-			for (int i = 0; i < 1; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
-
-		try {
-			for (int i = 0; i < 1; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
 
 		System.out.println("<=========== MOBILE " + recordNumber + " DATA READING ENDS <===========");
 
 		System.out.println("===========> MOBILE" + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 
-		pw.println();// new empty row
+		//pw.println();// new empty row
 		String line = id + "," + name + "," + price;
 
 		pw.println(line);
 
-		try {
-			for (int i = 0; i < 5; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
 		System.out.println();
 		System.out.println("<=========== MOBILE " + recordNumber + " DATA WRITING INTO CSV File ENDS <===========");
 

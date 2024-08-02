@@ -21,7 +21,19 @@ public class MobileFileUtil {
 
 		try {
 			file = new File("src/main/resources/mobile.csv");
+			boolean isNewFile = file.createNewFile();
 			pw = new PrintWriter(new FileWriter(file, true));
+			if (isNewFile) {
+				System.out.println("File is new, writing header...");
+				Arrays.stream(MobileCsvHeaders.values()).forEach(eachHeader -> {
+					pw.print(eachHeader.name());
+					pw.print(",");
+				});
+				pw.println(",");
+			} else {
+				System.out.println("File already exists, skipping header...");
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -41,25 +53,8 @@ public class MobileFileUtil {
 
 		System.out.println("===========> MOBILE HEADER ROW WRITING INTO CSV File STARTS ===========>");
 
-		Integer maxHeaderCount = Arrays.stream(MobileCsvHeaders.values()).map(eachHeder -> eachHeder.getId())
-				.max((i1, i2) -> i1.compareTo(i2)).get();
-
-//		Arrays.stream(MobileCsvHeaders.values()).forEach(eachHeader -> {
-//			pw.print(eachHeader.name());
-//
-//			if (eachHeader.getId() != maxHeaderCount)
-//				pw.print(",");
-//		});
-
-		System.out.println("Process of Writing Headers into : " + file.getName());
-		try {
-			for (int i = 0; i < 1; i++) {
-				Thread.sleep(1000);
-				System.out.print("=>");
-			}
-		} catch (Exception e) {
-			System.out.println("never comes");
-		}
+		//System.out.println("Process of Writing Headers into : " + file.getName());
+		
 
 		System.out.println("<=========== MOBILE HEADER ROW WRITING INTO CSV File ENDS <===========");
 

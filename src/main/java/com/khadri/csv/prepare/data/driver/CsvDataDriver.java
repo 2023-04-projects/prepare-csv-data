@@ -59,23 +59,32 @@ public class CsvDataDriver {
 			}
 
 			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+
 		case 6:
 			MobileDataProcessor mobileProcessor = new MobileDataProcessor(scanner);
-			Tuple2<File, PrintWriter> tupleFilePW1 = MobileFileUtil.mobileCsvFilePrintWriter();
+			Tuple2<File, PrintWriter> tupleFilePW6 = MobileFileUtil.mobileCsvFilePrintWriter();
 
 			try {
 				System.out.println(" How many records you want to enter ?  : ");
 				int records = scanner.nextInt();
 
 				for (int i = 1; i <= records; i++) {
-					mobileProcessor.process(tupleFilePW1._2, i);
+					mobileProcessor.process(tupleFilePW6._2, i);
 				}
 			} catch (Exception e) {
 				System.out.println("Exception Occured " + e.getCause());
 			} finally {
 				System.out.println("The remaining records were inserted into file. ");
-				tupleFilePW1._2.flush();
-				tupleFilePW1._2.close();
+				tupleFilePW6._2.flush();
+				tupleFilePW6._2.close();
 			}
 
 			break;
