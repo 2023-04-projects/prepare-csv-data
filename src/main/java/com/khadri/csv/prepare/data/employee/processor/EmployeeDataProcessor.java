@@ -31,7 +31,6 @@ public class EmployeeDataProcessor implements Processor {
 		System.out.println("===========> EMPLOYEE " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 		
-
 		System.out.println("===========> EMPLOYEE " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 		

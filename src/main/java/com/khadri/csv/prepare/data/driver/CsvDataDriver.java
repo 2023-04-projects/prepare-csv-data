@@ -16,7 +16,6 @@ import io.vavr.Tuple2;
 public class CsvDataDriver {
 
 	private Scanner scanner;
-
 	{
 		scanner = new Scanner(System.in);
 	}
