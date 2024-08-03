@@ -11,6 +11,8 @@ import com.khadri.csv.prepare.data.employee.processor.EmployeeDataProcessor;
 import com.khadri.csv.prepare.data.employee.util.EmployeeFileUtil;
 import com.khadri.csv.prepare.data.mobile.processor.MobileDataProcessor;
 import com.khadri.csv.prepare.data.mobile.util.MobileFileUtil;
+import com.khadri.csv.prepare.data.movie.processor.MovieDataProcessor;
+import com.khadri.csv.prepare.data.movie.util.MovieFileUtil;
 import com.khadri.csv.prepare.data.student.processor.StudentDataProcessor;
 import com.khadri.csv.prepare.data.student.util.StudentFileUtil;
 import com.khadri.csv.prepare.data.supermarket.processor.SuperMarketDataProcessor;
@@ -99,6 +101,29 @@ public class CsvDataDriver {
 				tupleFilePW4._2.close();
 
 			}
+
+		case 5:
+			MovieDataProcessor dataProcessor = new MovieDataProcessor(scanner);
+			Tuple2<File, PrintWriter> tupleFilePW5 = MovieFileUtil.movieCsvFilePrintWriter();
+			try {
+				System.out.println(" How many records you want to enter ?  : ");
+				int movieRecords = scanner.nextInt();
+
+				for (int i = 0; i < movieRecords; i++) {
+					dataProcessor.process(tupleFilePW5._2, i);
+
+				}
+
+			} catch (Exception e) {
+				System.out.println("Exception Occured " + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
+				tupleFilePW5._2.flush();
+				tupleFilePW5._2.close();
+
+			}
+
+			break;
 		case 6:
 			MobileDataProcessor mobileProcessor = new MobileDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW6 = MobileFileUtil.mobileCsvFilePrintWriter();
