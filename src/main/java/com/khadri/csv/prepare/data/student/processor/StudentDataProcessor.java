@@ -73,7 +73,7 @@ public class StudentDataProcessor implements Processor {
 		System.out.println("===========> STUDENT " + recordNumber + " DATA WRITING INTO CSV File STARTS ===========>");
 		System.out.println("Processing  File Wrting ");
 
-		pw.println();//new empty row
+		//pw.println();//new empty row
 		String line = id + "," + name + "," + subMarks1 + "," + subMarks2 + "," + subMarks3 + "," + totalMarks + ","
 				+ avg + "," + grade;
 		pw.println(line);

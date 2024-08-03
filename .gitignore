@@ -1,6 +1,3 @@
-
-
-
 /target/
 
 # eclipse classpath
@@ -19,5 +16,4 @@ bin/
 target/
 src/site/
 /target/classes
-
 
