@@ -63,10 +63,6 @@ public class CsvDataDriver {
 
 			break;
 
-
-		case 3:
-			break;
-
 		case 4:
 			SuperMarketDataProcessor superMarketDataProcessor = new SuperMarketDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW4 = SuperMarketFileUtil.superMarketCsvFilePrintWriter();
