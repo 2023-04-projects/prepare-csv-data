@@ -59,8 +59,7 @@ public class CsvDataDriver {
 			}
 
 			break;
-		case 2:
-			break;
+		
 		case 3:
 			CustomerDataProcessor custProcessor = new CustomerDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW2 = CustomerFileUtil.customerCsvFilePrintWriter();
