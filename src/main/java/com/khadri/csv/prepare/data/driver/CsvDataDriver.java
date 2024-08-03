@@ -7,14 +7,16 @@ import java.util.Scanner;
 
 import com.khadri.csv.prepare.data.customer.processor.CustomerDataProcessor;
 import com.khadri.csv.prepare.data.driver.types.DriverTypes;
-import com.khadri.csv.prepare.data.mobile.processor.MobileDataProcessor;
-import com.khadri.csv.prepare.data.mobile.util.MobileFileUtil;
 import com.khadri.csv.prepare.data.employee.processor.EmployeeDataProcessor;
 import com.khadri.csv.prepare.data.employee.util.EmployeeFileUtil;
+import com.khadri.csv.prepare.data.mobile.processor.MobileDataProcessor;
+import com.khadri.csv.prepare.data.mobile.util.MobileFileUtil;
 import com.khadri.csv.prepare.data.movie.processor.MovieDataProcessor;
 import com.khadri.csv.prepare.data.movie.util.MovieFileUtil;
 import com.khadri.csv.prepare.data.student.processor.StudentDataProcessor;
 import com.khadri.csv.prepare.data.student.util.StudentFileUtil;
+import com.khadri.csv.prepare.data.supermarket.processor.SuperMarketDataProcessor;
+import com.khadri.csv.prepare.data.supermarket.util.SuperMarketFileUtil;
 import com.khadri.cvs.prepare.data.customer.util.CustomerFileUtil;
 
 import io.vavr.Tuple2;
@@ -86,7 +88,25 @@ public class CsvDataDriver {
 				tupleFilePW2._2.close();
 			}
 			break;
+		case 4:
+			SuperMarketDataProcessor superMarketDataProcessor = new SuperMarketDataProcessor(scanner);
+			Tuple2<File, PrintWriter> tupleFilePW4 = SuperMarketFileUtil.superMarketCsvFilePrintWriter();
+			try {
+				System.out.println("How Many Records Do You Want ? : ");
+				int records4 = scanner.nextInt();
 
+				for (int i = 1; i <= records4; i++) {
+					superMarketDataProcessor.process(tupleFilePW4._2, i);
+				}
+
+			} catch (Exception e) {
+				System.out.println("Exception Occured " + e.getCause());
+			} finally {
+				System.out.println("The remaining records were inserted into file. ");
+				tupleFilePW4._2.flush();
+				tupleFilePW4._2.close();
+
+			}
 		case 6:
 			MobileDataProcessor mobileProcessor = new MobileDataProcessor(scanner);
 			Tuple2<File, PrintWriter> tupleFilePW6 = MobileFileUtil.mobileCsvFilePrintWriter();
